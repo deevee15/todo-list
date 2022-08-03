@@ -1,0 +1,311 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+.todo-list .edit__task-edit select, .todo-list .edit__task-edit textarea, .todo-list .edit__task-edit .edit__task-show, .todo-list .list .all-tasks .task {
+  background: #fff;
+  color: #000;
+  border-radius: 10px;
+  transition: 0.2s ease-in-out;
+  border: 2px solid #f7f7f7;
+  font-weight: 500;
+  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+}
+
+.todo-list .edit__task-edit .edit__title, .todo-list .edit__add-form div {
+  height: 45px;
+  line-height: 45px;
+  font-size: 18px;
+  background: #fff;
+  border-radius: 10px;
+  color: #9DA9B9;
+  text-decoration: underline;
+}
+
+.todo-list {
+  position: relative;
+  width: 1280px;
+  height: 900px;
+  margin-top: 50px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: row;
+}
+.todo-list .list {
+  min-width: 380px;
+  width: 380px;
+  position: relative;
+  margin-top: 50px;
+}
+.todo-list .list-resize {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background: #e1e1e1;
+  z-index: 100;
+  cursor: col-resize;
+}
+.todo-list .list-search {
+  position: absolute;
+  top: -50px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+}
+.todo-list .list-search input {
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid #9DA9B9;
+  padding-left: 40px;
+  color: #000;
+  transition: 0.2s ease-in;
+  background: url(ico/search.svg) 10px 15px no-repeat;
+}
+.todo-list .list-search input::-moz-placeholder {
+  color: #9DA9B9;
+  font-family: "Open Sans", sans-serif;
+}
+.todo-list .list-search input:-ms-input-placeholder {
+  color: #9DA9B9;
+  font-family: "Open Sans", sans-serif;
+}
+.todo-list .list-search input::placeholder {
+  color: #9DA9B9;
+  font-family: "Open Sans", sans-serif;
+}
+.todo-list .list-search input:focus {
+  border-color: #000;
+  background-image: url(ico/search-focus.svg);
+}
+.todo-list .list .all-tasks {
+  margin-top: 10px;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.todo-list .list .all-tasks .task {
+  width: calc(100% - 20px);
+  margin-left: 10px;
+  height: 110px;
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.todo-list .list .all-tasks .task:hover {
+  transform: scale(1.01);
+}
+.todo-list .list .all-tasks .task.selected {
+  border-color: #9DA9B9;
+}
+.todo-list .list .all-tasks .task__name {
+  padding: 10px;
+  width: calc(100% - 40px);
+  height: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+.todo-list .list .all-tasks .task__delete-button {
+  position: absolute;
+  right: 5px;
+  top: 20px;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+}
+.todo-list .list .all-tasks .task__delete-button:hover span {
+  background: #ADD8E6;
+}
+.todo-list .list .all-tasks .task__delete-button span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background: #000;
+  margin-bottom: 5px;
+  transition: 0.2s ease-in;
+}
+.todo-list .list .all-tasks .task__delete-button span:first-child {
+  transform: rotate(45deg);
+}
+.todo-list .list .all-tasks .task__delete-button span:last-child {
+  transform: rotate(-45deg);
+  margin-top: -7.5px;
+}
+.todo-list .list .all-tasks .task__status {
+  width: 100%;
+  position: relative;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+}
+.todo-list .list .all-tasks .task__status.processing {
+  color: #74c5d8;
+}
+.todo-list .list .all-tasks .task__status.wait {
+  color: #8f8f8f;
+}
+.todo-list .list .all-tasks .task__status.done {
+  color: #25b125;
+}
+.todo-list .list .all-tasks .task__checkbox {
+  position: absolute;
+  right: 5px;
+  bottom: 20px;
+}
+.todo-list .list .all-tasks .task__checkbox input {
+  border: none;
+  width: 15px;
+  height: 15px;
+}
+.todo-list .edit {
+  width: min(100% - 380px);
+  height: 400px;
+}
+.todo-list .edit__add-form {
+  margin-left: 20px;
+}
+.todo-list .edit__add-form textarea {
+  border-radius: 10px;
+  border: 1px solid #9DA9B9;
+  height: 145px;
+  resize: none;
+  width: min(100% - 40px);
+  font-size: 20px;
+  padding-left: 20px;
+  padding-top: 20px;
+  transition: 0.2s ease-in;
+}
+.todo-list .edit__add-form textarea:focus {
+  border-color: #000;
+}
+.todo-list .edit__add-form textarea::-moz-placeholder {
+  color: #9DA9B9;
+  font-family: "Open Sans", sans-serif;
+}
+.todo-list .edit__add-form textarea:-ms-input-placeholder {
+  color: #9DA9B9;
+  font-family: "Open Sans", sans-serif;
+}
+.todo-list .edit__add-form textarea::placeholder {
+  color: #9DA9B9;
+  font-family: "Open Sans", sans-serif;
+}
+.todo-list .edit__add-form button {
+  display: block;
+  width: min(100% - 40px);
+  height: 45px;
+  margin-top: 15px;
+  border-radius: 10px;
+  border: 1px solid #9DA9B9;
+  background: #fff;
+  color: #000;
+  font-size: "Open Sans", sans-seif;
+  transition: 0.2s ease-in-out;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.todo-list .edit__add-form button:active {
+  background: #000;
+  color: #fff;
+}
+.todo-list .edit__task-edit {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.todo-list .edit__task-edit .edit__task-show {
+  width: calc(100% - 44px);
+  position: relative;
+}
+.todo-list .edit__task-edit .edit__task-show p {
+  margin: 20px;
+  font-size: 18px;
+}
+.todo-list .edit__task-edit .edit__task-show .edit__button {
+  position: absolute;
+  right: 5px;
+  top: 20px;
+  cursor: pointer;
+}
+.todo-list .edit__task-edit .edit__task-show .edit__button svg {
+  stroke: #000;
+  transition: 0.2s ease-in;
+}
+.todo-list .edit__task-edit .edit__task-show .edit__button:hover svg {
+  fill: #ADD8E6;
+  stroke: #ADD8E6;
+}
+.todo-list .edit__task-edit textarea {
+  resize: none;
+  height: auto;
+  width: calc(100% - 44px);
+  font-size: 18px;
+  padding: 20px;
+}
+.todo-list .edit__task-edit textarea:focus {
+  border-color: #9DA9B9;
+}
+.todo-list .edit__task-edit select {
+  margin-top: 20px;
+  width: calc(100% - 44px);
+  height: 45px;
+  font-size: 18px;
+}
+.todo-list .edit__task-edit button {
+  width: calc((100% - 40px - 20px) / 2);
+  height: 45px;
+  border-radius: 10px;
+  border: none;
+  margin-top: 20px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.todo-list .edit__task-edit .edit-ok {
+  background: #000;
+  color: #fff;
+}
+.todo-list .edit__task-edit .edit-ok:active {
+  background: #ADD8E6;
+}
+.todo-list .edit__task-edit .edit-cancel {
+  margin-left: 10px;
+  border: 2px solid #9DA9B9;
+  background: #fff;
+}
+.todo-list .edit__task-edit .edit-cancel:active {
+  border-color: #000;
+}
+
+@media screen and (max-width: 1279px) {
+  .todo-list {
+    width: 100%;
+    height: calc(100vh - 50px);
+  }
+  .todo-list .list {
+    min-width: 40vw;
+    width: 40vw;
+  }
+  .todo-list .edit {
+    width: min(100% - 40vw);
+  }
+}
